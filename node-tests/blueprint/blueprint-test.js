@@ -12,9 +12,6 @@ chai.use(require('chai-fs'));
 
 const { expect } = chai;
 
-const projectroot = path.resolve(__dirname, '..', '..');
-const blueprintpath = path.resolve(projectroot, 'index.js');
-
 async function emberNew({
   args = []
 }) {
@@ -32,8 +29,6 @@ describe('blueprint', function() {
   this.timeout(10 * 1000);
 
   setUpBlueprintMocha.call(this);
-
-  this.blueprintPath = projectroot;
 
   it('works with default options', async function() {
     let cwd = await emberNew({
